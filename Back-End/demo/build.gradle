@@ -1,0 +1,51 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+	id 'org.asciidoctor.jvm.convert' version '3.3.2'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '22'
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('snippetsDir', file("build/generated-snippets"))
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web' //need to implement this into the dependencies every time I use file related functions
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// HAPI FHIR
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-r4:5.5.2'
+
+    // Apache Commons CSV
+    implementation 'org.apache.commons:commons-csv:1.8'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+	testImplementation 'org.springframework:spring-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	//Google OAuth 2.0  Dependencies
+	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.31.5'
+	implementation 'com.google.api-client:google-api-client-gson:1.31.5'
+
+}
+
+tasks.named('test') {
+	outputs.dir snippetsDir
+	useJUnitPlatform()
+}
+
+tasks.named('asciidoctor') {
+	inputs.dir snippetsDir
+	dependsOn test
+}
