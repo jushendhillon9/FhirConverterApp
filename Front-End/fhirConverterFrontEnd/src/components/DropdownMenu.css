@@ -1,0 +1,67 @@
+.dropdown {
+    background-color: beige;
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top: 2px solid black;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.header {
+    font-size: 30px;
+    text-align: center;
+}
+
+.linebreak {
+    height: 0.5px;
+    flex-basis: 100%;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.bucketOption {
+    background-color: lightblue;
+    width: 100%;
+    border: 2px solid white;
+    margin: 0px;
+    font-size: 15px;
+}
+
+.bucketOption:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.objectOption {
+    background-color: lightblue;
+    width: 100%;
+    border: 2px solid white;
+    margin: 0px;
+    font-size: 15px;
+}
+
+.objectOption:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.objectConvertButton {
+    margin: 10px;
+}
+
+.objectOptionClicked {
+    background-color: lightblue;
+    width: 100%;
+    border: 2px solid white;
+    margin: 0px;
+    font-size: 15px;
+    opacity: 0.5;
+    cursor: pointer;
+}

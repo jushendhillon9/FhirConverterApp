@@ -59,7 +59,7 @@ function DragAndDrop() {
     
         // Append the link to the DOM
         document.body.appendChild(downloadLink);
-    
+    c
         // Programmatically click the link to start the download
         downloadLink.click();
     
@@ -90,13 +90,14 @@ function DragAndDrop() {
         });
         }
     }, [file])
+    
 
     return (
         <div className="drop-area">
             <div className = "linebreak"></div>
             <div className = "secondWrapper">
                 <div className = "headerOne">
-                    <h2>File Upload</h2>
+                    <h2>File Upload Option</h2>
                 </div>
                 <div className = "linebreak"></div>
                 <div className = "fileBox">
@@ -109,13 +110,13 @@ function DragAndDrop() {
             {uploadedStatus === true && <img src={arrow} className="arrow2" alt="JSON logo" /> }
             {uploadedStatus === true  && 
                 <div className = "convertedFileWrapper">
-                    <div>
+                    <div className = "viewFile">
                         <h1>View File</h1>
                         <a href = {convertedURL}>
                         <img className = "fileIcon" src = {fileIcon}></img>
                         </a>
                     </div>
-                    <div>
+                    <div className = "downloadFile">
                         <h1>Download File</h1>
                         <div onClick = {downloadFile}>
                             <img className = "downloadIcon" src = {downloadIcon} alt = "Download"></img>

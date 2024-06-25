@@ -27,7 +27,7 @@ import ca.uhn.fhir.parser.IParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-
+import org.apache.commons.lang3.Conversion;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 
 import java.io.IOException;
@@ -35,15 +35,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-
 @RestController
 @RequestMapping("/api")
 public class ConversionLogic {
     @PostMapping("/convertingFile")
     public ResponseEntity convertFile(@RequestParam MultipartFile fileToConvert) {
-        FileType uploadedFileType = ConversionController.getFileType();
+        FileType uploadedFileType = FileTypeChecker.getFileType(fileToConvert);
+        System.out.println(uploadedFileType);
         if (uploadedFileType == FileType.JSON) {
             try {
+                System.out.println("ITS WORKING");
                 String fileContent = new String(fileToConvert.getBytes(), StandardCharsets.UTF_8); //turns entire file into string
                 FhirContext fhirContext = FhirContext.forR4();
 
@@ -59,6 +60,8 @@ public class ConversionLogic {
                 headers.setContentType(MediaType.APPLICATION_JSON);
                 headers.setContentDispositionFormData("filename", "resource.json");
                 headers.setContentLength(fileBytes.length);
+
+                System.out.println("hello there");
 
                 System.out.println(serializedJson);
 
@@ -86,18 +89,22 @@ public class ConversionLogic {
 
                     ObjectMapper mapper = new ObjectMapper(); 
                     String jsonString = mapper.writeValueAsString(recordMap);
+                    System.out.println(jsonString);
                     //objectmapper belongs to jackson library and it allows for us to write the collection of key value pairs as a string
     
                     IBaseResource resource = fhirContext.newJsonParser().parseResource(jsonString);
+                    System.out.println(resource);
                     //takes string and parses it into a fhir resource
 
                     String serializedJson = fhirContext.newJsonParser().encodeResourceToString(resource);
+                    System.out.println(serializedJson);
                     //turn fhir resource back into a string which is in fhir format which is compliant with json standards
 
                     jsonResources.add(serializedJson);
                     //adds it to the list of resources
                 }
                 String jsonArrayString = "[" + String.join(",", jsonResources) + "]";
+                System.out.println(jsonArrayString);
                 //String.join is a method that joins elements of an array (jsonResources is the array) with a delimeter provided as the first parameter
                 //the square brackets are necessary to create a "json array"
                 byte[] fileBytes = jsonArrayString.getBytes(StandardCharsets.UTF_8);

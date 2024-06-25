@@ -1,7 +1,12 @@
 .drop-area {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom:125px;
+    left: 450px;
 }
 
 .convertButton {
@@ -23,6 +28,7 @@
     border: 2px dashed #000;
     height: 200px;
     align-self: center;
+    width: 300px;
 }
 
 .fileBox {
@@ -39,12 +45,18 @@
 }
 
 .arrow2 {
-    width: 300px;
+    width: 200px;
     height: auto;
+    transform: rotate(90deg);
 }
 
 .convertedFileWrapper {
     width: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    right: 100px;
+    bottom: 70px;
 }
 
 .fileIcon {
@@ -67,4 +79,8 @@
 
 .downloadIcon:hover {
     transform: scale(0.9);
+}
+
+.viewFile, .downloadFile {
+    margin: 50px;
 }

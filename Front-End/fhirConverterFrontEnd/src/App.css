@@ -8,11 +8,12 @@ body {
 }
 
 .logo {
-  height: 6em;
+  height: 3em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
   cursor: pointer;
+  margin-top: 10px;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -21,28 +22,6 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 .convertee {
   display: flex;
@@ -50,26 +29,32 @@ body {
 }
 .wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-bottom: auto;
+  position: relative;
+  bottom: 24px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 450px;
+  background-color: beige;
+  height: 100px;
 }
 
 #ampersand {
-  font-size: 40px;
-  margin-top: auto;
-  margin-bottom: auto;
+  font-size: 30px;
+  margin-top: 40px;
 }
 
 .arrow {
-  width: 300px;
+  width: 140px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   top: -35px;
   padding-left: 10px;
-  padding-right: 30px;
+  padding-right: 0px;
 }
 
 .arrowExplained {
@@ -79,12 +64,13 @@ body {
 
 .navbar {
   background-color: beige;
-  width: 100%;
+  width: 100vw;
   height: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid black;
 }
 
 .navbarText {
@@ -97,8 +83,33 @@ body {
 }
 
 .model {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
+  text-align:left;
+  margin-left: 25px;
   position: relative;
-  top: 40px;
+  top: 0px;
+  z-index: 1;
+}
+
+.gcpBucketConversion {
+  width: 300px;
+  background-color: beige;
+  position: relative;
+  left: 20px;
+  bottom: 50px;
+  border: 2px solid black;
+}
+
+.gcpConversionHeader {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.gcpSubmitButton {
+  margin-left: 20px;
+}
+
+.textbox {
+  margin-bottom: 15px;
 }

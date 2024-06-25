@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 
 //need these import statements to setup the post routes that will provide the file here
 //provided by the Spring framework
-
 @RestController
 @RequestMapping("/api")
 // Indicates that this class will handle HTTP requests and produce HTTP responses.
@@ -22,6 +21,8 @@ public class ConversionController {
     public ResponseEntity<String> uploadFile(@RequestParam MultipartFile file) { //request parameter is sent from the client, it will be the file here!
         // Indicates that this method expects a request parameter named "file",
         // which will be bound to the MultipartFile parameter.
+
+        System.out.println("MADE IT ALL THE WAY HERE AS SHOULD");
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("File is empty");
         }
