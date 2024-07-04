@@ -113,3 +113,8 @@ body {
 .textbox {
   margin-bottom: 15px;
 }
+
+.processWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

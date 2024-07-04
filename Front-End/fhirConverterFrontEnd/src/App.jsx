@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import csvLogo from './assets/CSV-icon.png';
 import fhirLogo from './assets/Fhir-Icon.png';
 import jsonLogo from './assets/JSON-Icon.png';
 import arrow from './assets/Arrow.webp';
 import DragAndDrop from './components/DragAndDrop';
 import DropdownMenu from './components/DropdownMenu'
+import DatasetUpload from './components/DatasetUpload';
+import {ConvertedContext} from "./Contexts/ConvertedContext"
+import {FileContext} from "./Contexts/FileContext"
 import './App.css';
 
 function App() {
   const [projectId, setProjectId] = useState('');
   const [bucketsAndObjects, setBucketsAndObjects] = useState('');
+  const [isConverted, setIsConverted] = useState(false); //for context
+  const [file, setFile] = useState(null);
 
   const handleChange = (event) => {
     setProjectId(event.target.value);
@@ -75,9 +80,18 @@ function App() {
           className = "textbox"
         />
         <button className = "gcpSubmitButton" onClick={handleSubmitId}>Submit</button>
-        {bucketsAndObjects && (
-          <DropdownMenu givenProjectId={projectId} bucketsAndObjects={bucketsAndObjects} />
-        )}
+      </div>
+      <div className = "processWrapper">
+        <ConvertedContext.Provider value = {{isConverted, setIsConverted}}>
+          <FileContext.Provider value = {{file, setFile}}>
+            {bucketsAndObjects && (
+                  <DropdownMenu givenProjectId={projectId} bucketsAndObjects={bucketsAndObjects} className = "gcpBucketConversion"/>
+                )}
+            {isConverted && (
+              <DatasetUpload/>
+            )}
+          </FileContext.Provider>
+        </ConvertedContext.Provider>
       </div>
     </>
   );

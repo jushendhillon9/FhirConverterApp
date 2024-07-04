@@ -1,0 +1,39 @@
+.uploadToStoreWrapper {
+    background-color: beige;
+    width: 340px;
+    border: 2px solid black;
+    position: relative;
+    bottom: 160px;
+    left: 200px;
+}
+
+.headieOne {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.inputBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.linebreak {
+    height: 1px;
+    flex-basis: 100%;
+}
+
+.inputtedWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 20px;
+}
+
+.specificationInput {
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.uploadToStoreButton {
+    margin: 10px;
+    cursor: pointer;
+}

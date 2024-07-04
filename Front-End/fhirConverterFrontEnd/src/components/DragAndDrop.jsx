@@ -41,7 +41,7 @@ function DragAndDrop() {
         }
     };
 
-    const downloadFile = (event) => {
+    const downloadFile = (event) => { 
         event.preventDefault();
     
         // Ensure convertedURL is not empty
@@ -59,7 +59,6 @@ function DragAndDrop() {
     
         // Append the link to the DOM
         document.body.appendChild(downloadLink);
-    c
         // Programmatically click the link to start the download
         downloadLink.click();
     
@@ -97,7 +96,7 @@ function DragAndDrop() {
             <div className = "linebreak"></div>
             <div className = "secondWrapper">
                 <div className = "headerOne">
-                    <h2>File Upload Option</h2>
+                    <h2>Independent File Upload Option</h2>
                 </div>
                 <div className = "linebreak"></div>
                 <div className = "fileBox">

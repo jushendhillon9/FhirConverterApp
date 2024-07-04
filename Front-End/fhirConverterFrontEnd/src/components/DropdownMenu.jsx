@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ConvertedContext } from '../Contexts/ConvertedContext';
 import "./DropdownMenu.css";
+import { FileContext } from '../Contexts/FileContext';
 
 const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
   const [isBucketOrObject, setIsBucketOrObject] = useState("Bucket");
@@ -7,6 +9,8 @@ const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
   const [selectedBucketName, setSelectedBucketName] = useState("")
   const [selectedObjectName, setSelectedObjectName] = useState("")
   const [selectedObject, setSelectedObject] = useState(null);
+  const {setIsConverted} = useContext(ConvertedContext);
+  const {setFile} = useContext(FileContext)
   const projectId = givenProjectId;
 
 
@@ -18,7 +22,7 @@ const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
       return line.split(':')[1].trim();
     });
 
-  const handleBucketeClick = (bucket) => {
+  const handleBucketClick = (bucket) => {
     setSelectedBucketName(bucket);
     const bucketIndex = lines.findIndex(line => line.startsWith(`Objects in ${bucket}:`));
     const objectsForBucket = [];
@@ -58,7 +62,9 @@ const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
       }
     })
     .then((blob) => {
-      console.log(blob);
+      //use this as context
+      setFile(blob);
+
       const convertedURL = URL.createObjectURL(blob);
       // Further processing of data if needed
       const downloadLink = document.createElement('a');
@@ -75,6 +81,7 @@ const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
   
       // Clean up by removing the link from the DOM
       document.body.removeChild(downloadLink);
+      setIsConverted(true);
     })
     .catch((error) => {
       console.error('Error fetching buckets:', error.message);
@@ -82,37 +89,42 @@ const DropdownMenu = ({ givenProjectId, bucketsAndObjects }) => {
   }
 
   return (
-    <div className="dropdown">
-      {isBucketOrObject === "Bucket" ? (
-        <div className="header">All Buckets: </div>
-      ) : (
-        <div className="header">Files: </div>
-      )}
-      <div className="linebreak"></div>
-        {isBucketOrObject === 'Bucket' ? (
-          buckets.map((bucket, index) => (
-            <div className="dropdown-menu" key={index}>
-              <div className="linebreak"></div>
-              <button onClick={() => handleBucketeClick(bucket)} className="bucketOption">
-                {bucket}
-              </button>
-            </div>
-          ))
-        ) : (
-          <>
-            {
-              objects.map((object, index) => (
+    <>
+      <div className = "containerForComponents">
+        <div className="dropdown">
+          {isBucketOrObject === "Bucket" ? (
+            <div className="header">All Buckets: </div>
+          ) : (
+            <div className="header">Files: </div>
+          )}
+          <div className="linebreak"></div>
+            {isBucketOrObject === 'Bucket' ? (
+              buckets.map((bucket, index) => (
                 <div className="dropdown-menu" key={index}>
                   <div className="linebreak"></div>
-                  <button onClick={() => handleObjectClick(object)} className={selectedObject === object ? "objectOptionClicked" : "objectOption"}>{object}</button> 
+                  <button onClick={() => handleBucketClick(bucket)} className="bucketOption">
+                    {bucket}
+                  </button>
                 </div>
-            ))}
-            {isBucketOrObject === 'Object' && 
-              <button className = "objectConvertButton" onClick = {convertObjectToFhir}>Convert File</button>
-            }
-          </>
-        )}
-    </div>
+              ))
+            ) : (
+              <>
+                {
+                  objects.map((object, index) => (
+                    <div className="dropdown-menu" key={index}>
+                      <div className="linebreak"></div>
+                      <button onClick={() => handleObjectClick(object)} className={selectedObject === object ? "objectOptionClicked" : "objectOption"}>{object}</button> 
+                    </div>
+                ))}
+                {isBucketOrObject === 'Object' && 
+                  <button className = "objectConvertButton" onClick = {convertObjectToFhir}>Convert File</button>
+                }
+              </>
+            )}
+        </div>
+      </div>
+    </>
+    
   );
 };
 
