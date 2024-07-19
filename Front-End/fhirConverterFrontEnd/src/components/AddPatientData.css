@@ -1,0 +1,29 @@
+.addPatientDataHeader {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.wrapperAddPatientData {
+    background-color: beige;
+    padding: 20px;
+}
+
+.addPatientOption {
+    margin: 10px;
+}
+
+.selectOption, .inputDataOption {
+    margin-left: 2px;
+}
+
+.prescriptionsButton, .diagnosesButton {
+    background-color: transparent;
+    width: 50%;
+    cursor: pointer;
+}
+
+.prescriptionButtonSelected, .diagnosesButtonSelected {
+    background-color: transparent;
+    width: 50%;
+    opacity: 0.5;
+}

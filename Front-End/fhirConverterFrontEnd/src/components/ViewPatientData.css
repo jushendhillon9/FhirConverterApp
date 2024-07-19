@@ -1,0 +1,10 @@
+.conditionsList, .allergiesList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.conditionItem, .allergiesItem {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}

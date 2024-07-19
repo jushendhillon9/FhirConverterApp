@@ -7,6 +7,8 @@ import com.google.api.services.healthcare.v1.CloudHealthcare;
 import com.google.api.services.healthcare.v1.CloudHealthcareScopes;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Collections;
@@ -72,22 +74,22 @@ public class FhirUploadService {
   private static CloudHealthcare createClient() throws IOException {
     // Use Application Default Credentials (ADC) to authenticate the requests
     // For more information see https://cloud.google.com/docs/authentication/production
-    GoogleCredentials credential =
-        GoogleCredentials.getApplicationDefault()
+    GoogleCredentials credential = GoogleCredentials.fromStream(
+            new FileInputStream("src/main/resources/serviceKey.json"))
             .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
 
     // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
     HttpRequestInitializer requestInitializer =
         request -> {
-          new HttpCredentialsAdapter(credential).initialize(request);
-          request.setConnectTimeout(60000); // 1 minute connect timeout
-          request.setReadTimeout(60000); // 1 minute read timeout
+            new HttpCredentialsAdapter(credential).initialize(request);
+            request.setConnectTimeout(60000); // 1 minute connect timeout
+            request.setReadTimeout(60000); // 1 minute read timeout
         };
 
     // Build the client for interacting with the service.
     return new CloudHealthcare.Builder(HTTP_TRANSPORT, JSON_FACTORY, requestInitializer)
-        .setApplicationName("your-application-name")
-        .build();
+            .setApplicationName("your-application-name")
+            .build();
   }
 
   private static String getAccessToken() throws IOException {
@@ -138,6 +140,7 @@ public class FhirUploadService {
 
     return bundle.toString();
   }
+
   private JsonObject createBundleEntry(JsonObject resource) {
     JsonObject entry = new JsonObject();
     entry.add("resource", resource);
@@ -148,5 +151,5 @@ public class FhirUploadService {
     entry.add("request", request);
 
     return entry;
-}
+  }
 }

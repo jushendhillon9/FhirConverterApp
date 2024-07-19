@@ -1,0 +1,77 @@
+.pageWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.patientDataWrapper {
+    background-color: beige;
+    width: 400px;
+}
+
+.patientDataHeader {
+    font-size: 30px;
+    font-weight: bold;
+}
+.viewOptions {
+    width: 100%;
+}
+.conditionsButton {
+    background-color: transparent;
+    width: 50%;
+    cursor: pointer;
+}
+.conditionsButton:hover {
+    opacity: 0.5;
+}
+.conditionsButtonSelected {
+    background-color: transparent;
+    width: 50%;
+    opacity: 0.5;
+}
+.allergiesButton {
+    background-color: transparent;
+    width: 50%;
+    cursor: pointer;
+}
+.allergiesButtonSelected {
+    background-color: transparent;
+    width: 50%;
+    opacity: 0.5;
+}
+.allergiesButton:hover {
+    opacity: 0.5;
+}
+
+.projectInfoForm {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.projectInput {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.projectInfoSubmitButton {
+    background-color: beige;
+    width: 60px;
+    height: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.projectLabel {
+    margin-left: 10px;
+    width: 90px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.projectInfoInput {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 20px;
+}

@@ -20,7 +20,6 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable); //disable csrf token
 
         return http.build();
-        //http.build() returns the configured http object built
     }
 }
 

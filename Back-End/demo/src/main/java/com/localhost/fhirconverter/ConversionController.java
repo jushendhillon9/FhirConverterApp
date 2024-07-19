@@ -22,7 +22,6 @@ public class ConversionController {
         // Indicates that this method expects a request parameter named "file",
         // which will be bound to the MultipartFile parameter.
 
-        System.out.println("MADE IT ALL THE WAY HERE AS SHOULD");
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("File is empty");
         }
