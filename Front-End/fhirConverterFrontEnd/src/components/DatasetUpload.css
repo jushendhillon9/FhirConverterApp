@@ -3,8 +3,9 @@
     width: 340px;
     border: 2px solid black;
     position: relative;
-    bottom: 160px;
-    left: 200px;
+    top: 35px;
+    right: 314px;
+    padding: 5px;
 }
 
 .headieOne {
@@ -36,4 +37,5 @@
 .uploadToStoreButton {
     margin: 10px;
     cursor: pointer;
+    background-color: #7EC8E3;
 }

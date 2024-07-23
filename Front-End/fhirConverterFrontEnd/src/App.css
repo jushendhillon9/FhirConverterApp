@@ -1,10 +1,10 @@
-body {
+html, body {
+  padding: 0px;
   margin: 0px;
 }
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+
+html {
+  overflow-x: hidden;
 }
 
 .logo {
@@ -37,7 +37,7 @@ body {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
   width: 450px;
-  background-color: beige;
+  background-color: #7EC8E3;
   height: 100px;
 }
 
@@ -64,7 +64,6 @@ body {
 
 .navbar {
   background-color: beige;
-  width: 100vw;
   height: 100px;
   display: flex;
   flex-wrap: wrap;
@@ -94,11 +93,12 @@ body {
 
 .gcpBucketConversion {
   width: 300px;
-  background-color: beige;
-  position: relative;
-  left: 20px;
-  bottom: 50px;
+  background-color: #7EC8E3;
+  position: absolute;
+  left: 0px;
+  top: 207px;
   border: 2px solid black;
+  padding: 5px;
 }
 
 .gcpConversionHeader {
@@ -117,4 +117,8 @@ body {
 .processWrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.dragAndDrop {
+  margin: 20px;
 }

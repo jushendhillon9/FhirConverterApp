@@ -8,3 +8,15 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.patientDataHeader {
+    text-align: center;
+}
+
+.patientDataWrapper {
+    border: 2px solid black;
+}
+
+.patientDataWrapper {
+    margin-top: 10px;
+}

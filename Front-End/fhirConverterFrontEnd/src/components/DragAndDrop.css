@@ -13,6 +13,7 @@
     font-size: 30px;
     margin-top: 30px;
     cursor: pointer;
+    background-color: #7EC8E3;
 }
 
 .linebreak {
@@ -83,4 +84,5 @@
 
 .viewFile, .downloadFile {
     margin: 50px;
+    text-align: center;
 }

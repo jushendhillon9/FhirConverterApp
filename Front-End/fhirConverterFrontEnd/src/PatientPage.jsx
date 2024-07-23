@@ -30,7 +30,7 @@ function PatientPage() {
         <div className="linebreak"></div>
       </nav>
       <div className = "projectInfoWrapper">
-        <div>Input the following fields and submit to view or add Patient data</div>
+        <div className = "inputInstructions">Input the following fields and submit to view or add Patient data</div>
         <form className = "projectInfoForm" onSubmit={handleSubmit}>
           <div className = "projectInput">
             <label className = "projectLabel">Project ID: </label>
@@ -40,21 +40,21 @@ function PatientPage() {
             />
           </div>
           <div className = "projectInput">
-            <label className = "projectLabel">Region: </label>
+            <label className = "projectLabel regionLabel">Region: </label>
             <input
               className = "projectInfoInput"
               onChange = {(e) => setRegion(e.target.value)}
             />
           </div>
           <div className = "projectInput">
-            <label className = "projectLabel">Dataset Name: </label>
+            <label className = "projectLabel datasetLabel">Dataset Name: </label>
             <input
               className = "projectInfoInput"
               onChange = {(e) => setDatasetName(e.target.value)}
             />
           </div>
           <div className = "projectInput">
-            <label className = "projectLabel">Fhir Store Name: </label>
+            <label className = "projectLabel">Fhir Store: </label>
             <input
               className = "projectInfoInput"
               onChange = {(e) => setFhirStoreName(e.target.value)}

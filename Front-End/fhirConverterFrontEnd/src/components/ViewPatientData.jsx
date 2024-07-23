@@ -6,11 +6,12 @@ function ViewPatientData({projectId, region, datasetName, fhirStoreName, patient
   const [conditions, setConditions] = useState([]);
   const [allergies, setAllergies] = useState([]);
 
+
   const handleSelection = (event) => {
     setSelected(event.target.value)
   }
 
-  useEffect(() => {
+  const fetchConditions = (() => {
     const requestedResource = "Conditions";
     const formData = new FormData();
     formData.append("patientId", patientId)
@@ -26,7 +27,6 @@ function ViewPatientData({projectId, region, datasetName, fhirStoreName, patient
     .then((response) => response.json())
     .then((data) => {
         const conditionsArray = [];
-        console.log(data.entry)
         for (let i = 0; i < data.entry.length; i++) {
             if (data.entry[i].resource.code.text) {
                 conditionsArray.push(data.entry[i].resource.code.text);
@@ -40,10 +40,10 @@ function ViewPatientData({projectId, region, datasetName, fhirStoreName, patient
             setConditions(["None"]);
         }
     })
-  }, [])
+  })
   //retrieve patient data on load of component, Conditions
 
-  useEffect(() => {
+  const fetchAllergies = (() => {
     const requestedResource = "AllergyIntolerances";
     const formData = new FormData();
     formData.append("patientId", patientId)
@@ -69,22 +69,32 @@ function ViewPatientData({projectId, region, datasetName, fhirStoreName, patient
             setAllergies(["None"]);
         }
     })
-  }, [])
+  })
   //retrieve patient data on load of component, Allergies
+
+  const handleDiagnosesClick = (event) => {
+    fetchConditions();
+    handleSelection(event);
+  }
+
+  const handleAllergiesClick = () => {
+    fetchAllergies();
+    handleSelection(event);
+  }
 
   return (
     <div className = "patientDataWrapper">
         <div className = "patientDataHeader">View Patient Data</div>
         <div className = "viewOptions">
         <button
-            onClick = {handleSelection} 
+            onClick = {handleDiagnosesClick} 
             value = "Diagnoses" 
             className={selected === "Diagnoses" ? "conditionsButtonSelected" : "conditionsButton"}
         >
             Diagnoses
         </button>
         <button
-            onClick = {handleSelection}
+            onClick = {handleAllergiesClick}
             value = "Allergies" 
             className = {selected === "Allergies" ? "allergiesButtonSelected" : "allergiesButton"}
         >

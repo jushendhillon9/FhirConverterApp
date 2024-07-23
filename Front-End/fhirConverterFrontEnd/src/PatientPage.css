@@ -4,6 +4,13 @@
     justify-content: space-around;
 }
 
+.projectInfoWrapper {
+    background-color: #7EC8E3;
+    border: 2px solid black;
+    margin-top: 10px;
+    padding: 10px;
+}
+
 .patientDataWrapper {
     background-color: beige;
     width: 400px;
@@ -64,14 +71,29 @@
 }
 
 .projectLabel {
-    margin-left: 10px;
-    width: 90px;
+    width: 100px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-right: -20px;
+}
+
+.regionLabel {
+    margin-right: -45px;
+}
+
+.datasetLabel {
+    margin-right: 0px;
 }
 
 .projectInfoInput {
     margin-top: auto;
     margin-bottom: auto;
     height: 20px;
+    margin-right: 10px;
+}
+
+.inputInstructions {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 25px;
 }

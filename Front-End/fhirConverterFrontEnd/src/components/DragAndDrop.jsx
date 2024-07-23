@@ -96,7 +96,7 @@ function DragAndDrop() {
             <div className = "linebreak"></div>
             <div className = "secondWrapper">
                 <div className = "headerOne">
-                    <h2>Independent File Upload Option</h2>
+                    <h2>Convert individual files here</h2>
                 </div>
                 <div className = "linebreak"></div>
                 <div className = "fileBox">

@@ -67,11 +67,11 @@ function App() {
         </div>
         <img src={fhirLogo} className="logo react" alt="FHIR logo" />
       </div>
-      <div>
+      <div className = "dragAndDrop">
         <DragAndDrop />
       </div>
       <div className = "gcpBucketConversion">
-        <div className = "gcpConversionHeader"> To convert your GCS buckets, input project specific ID</div>
+        <div className = "gcpConversionHeader"> To convert your GCS buckets, please input project specific ID</div>
         <input
           type="text"
           value={projectId}
@@ -85,7 +85,7 @@ function App() {
         <ConvertedContext.Provider value = {{isConverted, setIsConverted}}>
           <FileContext.Provider value = {{file, setFile}}>
             {bucketsAndObjects && (
-                  <DropdownMenu givenProjectId={projectId} bucketsAndObjects={bucketsAndObjects} className = "gcpBucketConversion"/>
+                  <DropdownMenu givenProjectId={projectId} bucketsAndObjects={bucketsAndObjects}/>
                 )}
             {isConverted && (
               <DatasetUpload/>
