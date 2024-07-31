@@ -56,16 +56,18 @@ function App() {
         <div className="linebreak"></div>
       </nav>
       <div className="model">Follow the Model: </div>
-      <div className="wrapper">
-        <div className="convertee">
-          <img src={csvLogo} className="logo" alt="CSV logo" />
-          <p id="ampersand">||</p>
-          <img src={jsonLogo} className="logo" alt="JSON logo" />
+      <div className="biggerWrapper">
+        <div className="wrapper">
+          <div className="convertee">
+            <img src={csvLogo} className="logo" alt="CSV logo" />
+            <p id="ampersand">||</p>
+            <img src={jsonLogo} className="logo" alt="JSON logo" />
+          </div>
+          <div className="arrowExplained">
+            <img src={arrow} className="arrow" alt="Arrow" />
+          </div>
+          <img src={fhirLogo} className="logo react fhirLogo" alt="FHIR logo" />
         </div>
-        <div className="arrowExplained">
-          <img src={arrow} className="arrow" alt="Arrow" />
-        </div>
-        <img src={fhirLogo} className="logo react" alt="FHIR logo" />
       </div>
       <div className = "dragAndDrop">
         <DragAndDrop />
@@ -92,6 +94,11 @@ function App() {
             )}
           </FileContext.Provider>
         </ConvertedContext.Provider>
+      </div>
+      <div className = "mainLogoWrapper">
+        <div className = "pulse">
+          <img src={fhirLogo} className="logo react mainLogo" alt="FHIR logo" />
+        </div>
       </div>
     </>
   );

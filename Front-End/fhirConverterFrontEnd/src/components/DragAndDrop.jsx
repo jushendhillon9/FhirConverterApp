@@ -106,9 +106,9 @@ function DragAndDrop() {
                     {statusCode === 200 && <div className = "linebreak"></div>}
                 </div>
             </div>
-            {uploadedStatus === true && <img src={arrow} className="arrow2" alt="JSON logo" /> }
             {uploadedStatus === true  && 
                 <div className = "convertedFileWrapper">
+                    {uploadedStatus === true && <img src={arrow} className="arrow2" alt="JSON logo" /> }
                     <div className = "viewFile">
                         <h1>View File</h1>
                         <a href = {convertedURL}>

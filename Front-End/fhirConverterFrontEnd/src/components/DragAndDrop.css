@@ -30,6 +30,9 @@
     height: 200px;
     align-self: center;
     width: 300px;
+    position: absolute;
+    top: -10px;
+    right: 500px;
 }
 
 .fileBox {
@@ -38,6 +41,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    z-index: 1;
 }
 
 .headerOne {
@@ -49,15 +53,19 @@
     width: 200px;
     height: auto;
     transform: rotate(90deg);
+    position: absolute;
+    bottom: 220px;
+    left: 100px;
 }
 
 .convertedFileWrapper {
     width: 200px;
     display: flex;
     flex-wrap: nowrap;
-    position: relative;
-    right: 100px;
-    bottom: 70px;
+    position: absolute;
+    top: 300px;
+    right: 650px;
+    z-index: 1;
 }
 
 .fileIcon {

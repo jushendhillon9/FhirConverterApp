@@ -27,18 +27,20 @@ html {
   display: flex;
   flex-wrap: nowrap;
 }
+
+.biggerWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .wrapper {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   padding-bottom: auto;
-  position: relative;
-  bottom: 24px;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
   width: 450px;
   background-color: #7EC8E3;
   height: 100px;
+  border: 2px solid black;
 }
 
 #ampersand {
@@ -84,21 +86,26 @@ html {
 .model {
   font-size: 20px;
   font-weight: bold;
-  text-align:left;
-  margin-left: 25px;
-  position: relative;
-  top: 0px;
   z-index: 1;
+  text-align: center;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  background-color: beige;
 }
 
 .gcpBucketConversion {
   width: 300px;
   background-color: #7EC8E3;
   position: absolute;
-  left: 0px;
-  top: 207px;
+  left: 40px;
+  top: 180px;
   border: 2px solid black;
-  padding: 5px;
+  padding: 15px;
+  z-index: 1;
 }
 
 .gcpConversionHeader {
@@ -108,10 +115,17 @@ html {
 
 .gcpSubmitButton {
   margin-left: 20px;
+  background-color: transparent;
+  font-weight: bold;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 .textbox {
   margin-bottom: 15px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
 }
 
 .processWrapper {
@@ -121,4 +135,23 @@ html {
 
 .dragAndDrop {
   margin: 20px;
+}
+
+.mainLogoWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 0px;
+}
+
+.pulse {
+  width: 370px;
+  height: 400px;
+  background-color: beige;
+  border-radius: 50%;
+}
+
+.mainLogo {
+  width: 300px;
+  height: 300px;
 }
