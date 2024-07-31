@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Ensure Gradle Wrapper and Build Configuration Files are not ignored
+!gradlew
+!gradlew.bat
+!build.gradle
+!settings.gradle
+!gradle/wrapper/gradle-wrapper.jar
