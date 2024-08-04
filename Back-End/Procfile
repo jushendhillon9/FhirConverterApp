@@ -1,0 +1,1 @@
+web: cd demo && java -jar build/libs/FhirConverterApp.jar
