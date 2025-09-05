@@ -1,0 +1,3 @@
+resourceType,id,gender,birthDate,name
+Patient,1,male,1980-01-01,John Doe
+Patient,2,female,1985-05-23,Jane Smith

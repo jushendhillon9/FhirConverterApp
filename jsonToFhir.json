@@ -1,0 +1,55 @@
+{
+  "resourceType": "Condition",
+  "id": "example-condition",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+    ]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/a6aeec42-edbb-493e-b774-46df51a5b38d"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "55607006",
+        "display": "Fracture of forearm"
+      }
+    ],
+    "text": "Fracture of forearm"
+  },
+  "onsetDateTime": "2023-01-01",
+  "evidence": [
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169590002",
+              "display": "Physical exam finding"
+            }
+          ],
+          "text": "Fracture detected on physical exam"
+        }
+      ]
+    }
+  ]
+}
